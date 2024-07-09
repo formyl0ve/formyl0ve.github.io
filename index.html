@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест и открытка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .card, .test {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            max-width: 600px;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+        }
+        .message {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .signature {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #888;
+        }
+        .image-container {
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 15px;
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        .answers input {
+            margin: 10px 0;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .video-container {
+            margin: 20px 0;
+        }
+        .video-container video {
+            max-width: 100%;
+            border-radius: 15px;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="test">
+        <div class="question">Когда мы начали встречаться?</div>
+        <div class="answers">
+            <label>
+                <input type="radio" name="question1" value="wrong1"> 1 ноября
+            </label>
+            <label>
+                <input type="radio" name="question1" value="wrong2"> 3 октября
+            </label>
+            <label>
+                <input type="radio" name="question1" value="correct"> 8 ноября
+            </label>
+        </div>
+        <div class="question">Кому мы записали этот кружок?</div>
+        <div class="video-container">
+            <video controls>
+                <source src="doc_2023-12-31_20-36-54.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        <div class="answers">
+            <label>
+                <input type="radio" name="question2" value="wrong1"> Псу
+            </label>
+            <label>
+                <input type="radio" name="question2" value="correct"> Дане
+            </label>
+            <label>
+                <input type="radio" name="question2" value="wrong2"> Полине
+            </label>
+        </div>
+        <button onclick="showCard()">Показать открытку</button>
+    </div>
+
+    <div class="card" style="display: none;">
+        <div class="heart">❤️</div>
+        <div class="message">солнышко,</div>
+        <div class="message">моя любимая я хочу сказать тебе, как сильно я тебя ценю и люблю. каждый день я благодарен за то, что ты в моей жизни. ты приносишь мне радость, счастье твоя красота ослепительна, но внутренняя красота, которую ты излучаешь, еще более прекрасна.твоя нежность, любовь и забота затрагивают самую глубину моей души, я ценю твою поддержку и веру в меня, которые всегда дают мне силы двигаться вперед.я хочу проводить с тобой каждый момент своей жизни, ты делаешь мои дни яркими и наполняешь их смыслом. с тобой я чувствую себя дома, и мое сердце спокойно знает, что рядом со мной находится самый важный человек.ты- моя поддержка и моя половинка, с тобой я чувствую себя сильным и уверенным в своих возможностях, твоя любовь и забота наделяют меня силой и вдохновляют на достижение больших вещей.каждый день, проведенный с тобой, наполняется смехом, теплотой и безусловной любовью. я люблю тебя больше всего на свете</div>
+        <div class="message">с любовью,</div>
+        <div class="signature">артём</div>
+    </div>
+
+    <script>
+        function showCard() {
+            const question1 = document.querySelector('input[name="question1"]:checked');
+            const question2 = document.querySelector('input[name="question2"]:checked');
+
+            if (question1 && question2 && question1.value === "correct" && question2.value === "correct") {
+                document.querySelector('.test').style.display = 'none';
+                document.querySelector('.card').style.display = 'block';
+            } else {
+                alert('неправильно((');
+            }
+        }
+    </script>
+</body>
+</html>
